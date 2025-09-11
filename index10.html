@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Устанавливаем кодировку страницы на UTF-8 для поддержки русских символов -->
+    <meta charset="UTF-8">
+    <!-- Устанавливаем метатег для адаптивного дизайна, чтобы страница корректно отображалась на мобильных устройствах -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
+    <!-- Заголовок страницы -->
+     <!-- <meta http-equiv="Content-Security-Policy" 
+      content="default-src 'self'; 
+               script-src 'self' 'unsafe-eval'; 
+               child-src 'self'; 
+               object-src 'none'"> -->
+    <title>ТренажерКА</title>
+
+    <!-- Подключаем файл стилей для оформления страницы -->
+    <link  href="styles10.css" rel="stylesheet">
+    <!-- Подключение Bootstrap CSS -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/csslint/1.0.5/csslint.min.js"></script> -->
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li onclick="openTab(event, 'htmlTab')"><a class="active" href="#HTML/CSS">HTML/CSS</a></li>
+            <li onclick="openTab(event, 'jsTab')"><a href="#JavaScript">JavaScript</a></li>
+            <li onclick="openTab(event, 'bootTab')"><a href="#Bootstrap">Bootstrap</a></li>
+            <li onclick="openTab(event, 'jquTab')"><a href="#jQuery">jQuery</a></li>
+            <li onclick="openTab(event, 'vueTab')"><a href="#vue">Vue.js</a></li>
+        </ul>
+    </div>
+
+     <!-- регистрация -->
+    <div class="container">
+         <!-- <div class="auth-forms" id="authForms">
+            <div class="form-container" id="registerForm">
+                <h2>Регистрация</h2>
+                <form onsubmit="event.preventDefault(); register();">
+                   <input type="text" id="registerUsername" placeholder="Имя пользователя" required>
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                    <input type="password" id="registerPassword" placeholder="Пароль" required>
+                    <button type="submit" onclick="register()">Зарегистрироваться</button> 
+                </form>
+                
+                <p>Уже есть аккаунт? <a href="#" onclick="showLogin()">Войти</a></p>
+            </div>
+            <div class="form-container" id="loginForm" style="display: none;">
+                <h2>Вход</h2>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Пароль" required>
+                <button type="submit" onclick="login()">Войти</button>
+                <p>Нет аккаунта? <a href="#" onclick="showRegister()">Зарегистрироваться</a></p>
+            </div>
+        </div> -->
+
+        <!-- <div class="editor-container"> -->
+        <!-- <div class="editor-container" id="editorContainer" style="display: none;"> -->
+        <div id="editor-container">
+            <!-- <div class="editor-container"></div> -->
+            <div class="code-editors">
+                <div id="htmlTab" class="tabcontent active">
+                    <nav class="navZapusk">
+                        <button id="run">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                             <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                        </button>   
+                    </nav>
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="htmlTab1">HTML</button>
+                        <button class="tab-btn" data-tab="cssTab">CSS</button>
+                        <button class="tab-btn" data-tab="jsTab1">JS</button>
+                    </div>
+                    <div class="tab-contents">
+                        <div id="htmlTab1" class="tabcontent1 active">
+                        <textarea id="htmlCode" placeholder="Введите HTML код..."></textarea>
+                        </div>
+                        <div id="cssTab" class="tabcontent1">
+                        <textarea id="cssCode" placeholder="Введите CSS код..."></textarea>
+                        </div>
+                        <div id="jsTab1" class="tabcontent1">
+                        <textarea id="jsCode2" placeholder="Введите JS код..."></textarea>
+                        </div>
+                    </div>
+                 
+                    <div id="errorOutput"></div>
+                </div>
+
+                <div id="jsTab" class="tabcontent active">
+                    <nav class="navZapusk">
+                        <button id="runButton">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                             <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </nav>
+                    <h2>JavaScript</h2>
+                    <textarea id="jsCode" placeholder="Введите JavaScript код..."></textarea>
+
+                </div>
+
+                <div id="bootTab" class="tabcontent active">
+                    <nav class="navZapusk">
+                        <button id="showResultBtn">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                             <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </nav>
+                    <div class="tab-buttons">
+                        <button class="tab-btn1 active" data-tab="htmlTab2">HTML/Bootstrap</button>
+                        <button class="tab-btn1" data-tab="cssTab1">CSS/Bootstrap</button>
+                        <button class="tab-btn1" data-tab="jsTab2">JS/Bootstrap</button>
+                    </div>
+                    <div class="tab-contents">
+                        <div id="htmlTab2" class="tabcontent2 active">
+                        <textarea id="htmlCode1" placeholder="Введите HTML код..."></textarea>
+                        </div>
+                        <div id="cssTab1" class="tabcontent2">
+                        <textarea id="cssCode1" placeholder="Введите CSS код..."></textarea>
+                        </div>
+                        <div id="jsTab2" class="tabcontent2">
+                        <textarea id="jsCode1" placeholder="Введите JS код..."></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="jquTab" class="tabcontent active">
+                    <nav class="navZapusk">
+                        <button id="runjQButton">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                             <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </nav>
+                    <h2>jQuery</h2>
+                    <textarea id="jquCode" placeholder="Введите код..."></textarea>
+                </div>
+
+                <div id="vueTab" class="tabcontent active">
+                    <nav class="navZapusk">
+                        <button id="runVueButton">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                             <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </nav>
+                    <h2>Vue.js</h2>
+                    <textarea id="vueCode" placeholder="Введите код..."></textarea>
+                    <h2>JSON</h2>
+                    <textarea id="JSONCode" placeholder="Введите код..."></textarea>
+                </div>
+
+
+                <div class="buttons">
+                    <!-- <button id="run">Запустить</button> -->
+                    <button id="clear">Очистить</button>
+                    <!-- <button id="runButton">Запустить код JS</button> -->
+                    <button id="showResultBtn" style="display: none;">Показать результат</button> 
+                    <!-- <button id="runjQButton">Запустить код jQuery</button>
+                    <button id="runVueButton">Запустить код Vue</button> -->
+                </div>
+
+            </div>
+            <div class="result">
+                <h2>Результат</h2>
+                    <!-- <button onclick="zoomIn()">+</button>
+                    <button onclick="zoomOut()">−</button> -->
+                    <iframe id="output"></iframe>
+                      <div class="zoom-controls">
+                        <button onclick="zoomOut()" title="Уменьшить шрифт">−</button>
+                        <button onclick="zoomIn()" title="Увеличить шрифт">+</button>
+                    </div>
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/htmlmixed/htmlmixed.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js"></script>
+            <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+            <!-- <script src="https://cdn.jsdelivr.net/npm/htmlhint@latest/dist/htmlhint.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/csslint@latest/dist/csslint.min.js"></script> -->
+        </div>
+
+        
+    </div>
+    
+    <!-- iframe для безопасного выполнения кода -->
+    <iframe id="sandbox" sandbox="allow-scripts" src="sandbox3.html"></iframe>
+   
+    <!-- <script src="https://cdn.jsdelivr.net/npm/htmlhint@latest/dist/htmlhint.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/csslint@latest/dist/csslint.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/csslint/1.0.5/csslint.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/css-tree@1.1.2/dist/csstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/esprima@4.0.1/dist/esprima.min.js"></script>
+    <!-- JS CodeMirror -->
+    <!-- <script src="server.js"></script>
+    <script src="setupDatabase.js"></script> -->
+    <!-- <script src="script10.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/esprima/4.0.1/esprima.min.js"></script> 
+    <script src="script10.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
