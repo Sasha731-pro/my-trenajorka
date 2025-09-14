@@ -4,8 +4,10 @@
     <!-- Устанавливаем кодировку страницы на UTF-8 для поддержки русских символов -->
     <meta charset="UTF-8">
     <!-- Устанавливаем метатег для адаптивного дизайна, чтобы страница корректно отображалась на мобильных устройствах -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
     <!-- Заголовок страницы -->
      <!-- <meta http-equiv="Content-Security-Policy" 
@@ -13,14 +15,8 @@
                script-src 'self' 'unsafe-eval'; 
                child-src 'self'; 
                object-src 'none'"> -->
-    <title>ТренажерКА</title>
-
-    <!-- Подключаем файл стилей для оформления страницы -->
     <link  href="styles10.css" rel="stylesheet">
-    <!-- Подключение Bootstrap CSS -->
-    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
-    
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/csslint/1.0.5/csslint.min.js"></script> -->
+    <title>ТренажерКА</title>
 </head>
 <body>
     <div class="navbar">
@@ -157,19 +153,15 @@
 
 
                 <div class="buttons">
-                    <!-- <button id="run">Запустить</button> -->
                     <button id="clear">Очистить</button>
-                    <!-- <button id="runButton">Запустить код JS</button> -->
                     <button id="showResultBtn" style="display: none;">Показать результат</button> 
-                    <!-- <button id="runjQButton">Запустить код jQuery</button>
-                    <button id="runVueButton">Запустить код Vue</button> -->
+
                 </div>
 
             </div>
             <div class="result">
                 <h2>Результат</h2>
-                    <!-- <button onclick="zoomIn()">+</button>
-                    <button onclick="zoomOut()">−</button> -->
+
                     <iframe id="output"></iframe>
                       <div class="zoom-controls">
                         <button onclick="zoomOut()" title="Уменьшить шрифт">−</button>
@@ -182,12 +174,6 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js"></script>
-            <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-
-            <!-- <script src="https://cdn.jsdelivr.net/npm/htmlhint@latest/dist/htmlhint.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/csslint@latest/dist/csslint.min.js"></script> -->
         </div>
 
         
@@ -196,15 +182,8 @@
     <!-- iframe для безопасного выполнения кода -->
     <iframe id="sandbox" sandbox="allow-scripts" src="sandbox3.html"></iframe>
    
-    <!-- <script src="https://cdn.jsdelivr.net/npm/htmlhint@latest/dist/htmlhint.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/csslint@latest/dist/csslint.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/csslint/1.0.5/csslint.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/css-tree@1.1.2/dist/csstree.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/esprima@4.0.1/dist/esprima.min.js"></script>
-    <!-- JS CodeMirror -->
-    <!-- <script src="server.js"></script>
-    <script src="setupDatabase.js"></script> -->
-    <!-- <script src="script10.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/esprima/4.0.1/esprima.min.js"></script> 
     <script src="script10.js"></script>
 
