@@ -84,7 +84,7 @@ const htmlEditor= CodeMirror.fromTextArea(document.getElementById("htmlCode"), {
     lineWrapping: true,
     theme: "default"
 });
-htmlEditor.setSize(null, "83vh"); // только для этого редактора
+htmlEditor.setSize(null, "80vh"); // только для этого редактора
 
 const htmlEditor1= CodeMirror.fromTextArea(document.getElementById("htmlCode1"), {
     lineNumbers: true,
@@ -93,7 +93,7 @@ const htmlEditor1= CodeMirror.fromTextArea(document.getElementById("htmlCode1"),
     theme: "default",
     height: "auto"
 });
-htmlEditor1.setSize(null, "83vh");
+htmlEditor1.setSize(null, "80vh");
 
 const cssEditor = CodeMirror.fromTextArea(document.getElementById("cssCode"), {
     lineNumbers: true,
@@ -101,7 +101,7 @@ const cssEditor = CodeMirror.fromTextArea(document.getElementById("cssCode"), {
     lineWrapping: true,
     theme: "default"
 });
-cssEditor.setSize(null, "83vh"); // только для этого редактора
+cssEditor.setSize(null, "80vh"); // только для этого редактора
 
 const cssEditor1 = CodeMirror.fromTextArea(document.getElementById("cssCode1"), {
     lineNumbers: true,
@@ -109,7 +109,7 @@ const cssEditor1 = CodeMirror.fromTextArea(document.getElementById("cssCode1"), 
     lineWrapping: true,
     theme: "default"
 });
-cssEditor1.setSize(null, "83vh");
+cssEditor1.setSize(null, "80vh");
 
 const jsEditor = CodeMirror.fromTextArea(document.getElementById("jsCode"), {
     lineNumbers: true,
@@ -125,7 +125,7 @@ const jsEditor = CodeMirror.fromTextArea(document.getElementById("jsCode"), {
     theme: "default",
     height: "auto"
 });
-jsEditor.setSize(null, "80vh"); // только для этого редактора
+jsEditor.setSize(null, "78vh"); // только для этого редактора
 
 const jsEditor1 = CodeMirror.fromTextArea(document.getElementById("jsCode1"), {
     lineNumbers: true,
@@ -134,7 +134,7 @@ const jsEditor1 = CodeMirror.fromTextArea(document.getElementById("jsCode1"), {
     theme: "default",
     height: "auto"
 });
-jsEditor1.setSize(null, "83vh");
+jsEditor1.setSize(null, "80vh");
 
 const jsEditor2 = CodeMirror.fromTextArea(document.getElementById("jsCode2"), {
     lineNumbers: true,
@@ -143,7 +143,7 @@ const jsEditor2 = CodeMirror.fromTextArea(document.getElementById("jsCode2"), {
     theme: "default",
     height: "auto"
 });
-jsEditor2.setSize(null, "83vh"); // только для этого редактора
+jsEditor2.setSize(null, "80vh"); // только для этого редактора
 
 const jquEditor = CodeMirror.fromTextArea(document.getElementById("jquCode"), {
     lineNumbers: true,
@@ -152,7 +152,7 @@ const jquEditor = CodeMirror.fromTextArea(document.getElementById("jquCode"), {
     theme: "default",
     height: "auto"
 });
-jquEditor.setSize(null, "80vh"); 
+jquEditor.setSize(null, "78vh"); 
 
 const vueEditor = CodeMirror.fromTextArea(document.getElementById("vueCode"), {
     lineNumbers: true,
@@ -1283,3 +1283,4 @@ document.getElementById('clear').addEventListener('click', function() {
 
 // // Изначально показываем форму регистрации
 // showRegister();
+
