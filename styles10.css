@@ -1,30 +1,27 @@
+html {
+  font-size: 16px;  /* базовый размер шрифта */
+  -webkit-text-size-adjust: 100%; /* отключить автоувеличение шрифтов на мобильных */
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 .CodeMirror {
-    height: 40vh;
-    
+    /* height: 30vh; */
+    height: 400px; /* Фиксированная высота в px (вместо vh для точности) */
     /* height: auto;  */
     border: 1px solid #ddd;
      /* flex-grow: 1;  */
      /*Позволяет текстовым полям занимать доступное пространство */
     font-family: Arial, sans-serif;
-    font-size: 20px;
+    font-size: 14px;
+    
     /* max-height: calc(50vh - 100px);
     box-sizing: border-box; */
 }
 .error-line {
     background-color: rgb(245, 118, 118); /* Цвет подсветки */
 }
-/* попытка сделать подсветку ошибок */
-/* .line-error {
-  background-color: rgba(255, 0, 0, 0.3);
-}
 
-.cm-s-default .error-line {
-    background-color: #ffcccc;
-    display: block;
-} */
-/* .line-error-highlight {
-  background-color: rgba(255, 0, 0, 0.3);
-} */
 
 /* Навигация */
 .navbar {
@@ -70,8 +67,8 @@
     color: #cfd6f7;
     text-align: center;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 500;
+    font-size: 15px;
     transition: background-color 0.3s, color 0.3s;
     border-bottom: 3px solid transparent;
     user-select: none;
@@ -90,7 +87,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0; 
     /* padding: 0;  */
-    padding-top: 56px; /* высота навбара */
+    padding-top: 50px; /* высота навбара */
     display: flex; 
     flex-direction: column;
     background: #f9f9fb;
@@ -98,9 +95,21 @@ body {
     width: 100%;
     color: #333;
     overflow: hidden;
+    font-size: 14px; /* Фиксированный размер шрифта для body */
+    line-height: 1.4; /* Фиксированная высота строки */
     /* padding-top: 50px; 
     overflow-x: hidden; 
     overflow-y: hidden;  */
+}
+
+h2 {
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+/* Глобальный сброс box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 /* Контейнер редакторов и результата */
@@ -125,11 +134,12 @@ body {
     display: flex;
     width: 50%;
     /* height: 40%; */
-    height: 95vh;
+    height: 93vh;
     flex-direction: column;
     flex-grow: 1;
     border-right: 1px solid #ddd;
-    overflow-y: auto; 
+    /* overflow-y: auto; */
+     overflow: hidden;
     /* padding: 20px; */
 }
 
@@ -202,6 +212,7 @@ body {
     box-sizing: border-box;
     flex-grow: 1; */
     flex-direction: column;
+     flex-grow: 1;
     height: 100%;
 }
 
@@ -213,9 +224,10 @@ body {
 textarea {
     flex: 1;
     font-family: 'Fira Code', monospace, monospace;
-    font-size: 1rem;
+    /* font-size: 1rem; */
+    font-size: 14px; /* или 15px */
     width: 100% ;
-    height: 90%;
+    height: 80%;
     flex-grow: 1; 
     margin-bottom: 10px; 
     resize: vertical; 
@@ -224,7 +236,7 @@ textarea {
     border-radius: 10px;
     border: 1px solid #999494;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin-top: 50px; 
+    margin-top: 0px; 
     
 }
 
@@ -262,7 +274,7 @@ details{
 #clear svg {
     /* display: block; */
     width: 24px;
-    height: 24px;
+    height: 10px;
     fill: currentColor;
 }
 
@@ -291,6 +303,7 @@ details{
     width: 100%;
     background-color: #333;
     z-index: 1000;
+    
 }
 
 .navZapusk button,
@@ -298,16 +311,17 @@ details{
   background: transparent;
   border: 2px solid #a678ef;
   color: #a678ef;
-  padding: 8px 20px;
-  border-radius: 30px;
-  font-weight: 700;
-  font-size: 1rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   transition: all 0.3s ease;
   user-select: none;
+  /* position:static;   */
 }
 
 .navZapusk button svg,
@@ -322,6 +336,7 @@ details{
   background-color: #a678ef;
   color: #fff;
   box-shadow: 0 4px 12px rgba(166, 120, 239, 0.6);
+  position:static;
 }
 
 .navZapusk button:active,
@@ -332,7 +347,7 @@ details{
 
 #run, #runButton, #showResultBtn, #runjQButton, #runVueButton, #runPHPButton {
     position: absolute;
-    left: 50%;
+    left: 95%;
     transform: translateX(-50%);
     margin: 5px;
     padding: 5px 24px;
@@ -371,7 +386,9 @@ details{
     background-color: #8f4fa8;
     box-shadow: none;
     transform: translateX(-50%) scale(0.97);
+     /*position: relative;  или static */
 }
+
 
 #errorOutput {
     margin-top: 10px;
@@ -388,25 +405,28 @@ details{
 
 /* Нижняя панель с кнопками */
 .buttons {
-  margin-top: auto;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
-  gap: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  gap: 10px;
+  /* padding-top: 3px;
+  padding-bottom: 3px; */
+  padding: 5px 0;
   border-top: 1px solid #eee;
+  height: 90px;  /* фиксированная высота под кнопки */
 }
 
 /* Адаптивность */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    /* flex-direction: column; */
+     width: 95%; /* На мобильных устройствах больше пространства */
   }
-  .code-editors,
+  /* .code-editors,
   .result {
     width: 100%;
     height: 50vh;
-  }
+  } */
   .editor-container {
     flex-direction: column;
   }
@@ -425,6 +445,7 @@ details{
 
 .tab-buttons {
   display: flex;
+  height: 50px;
   background: #f0f0f0;
   border-bottom: 1px solid #ccc;
 }
@@ -449,6 +470,7 @@ details{
 .tab-buttons button:hover:not(.active) {
   background-color: #ddd;
 }
+
 
 .tabcontent1, .tabcontent2 {
   display: none;
