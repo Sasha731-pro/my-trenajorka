@@ -1039,49 +1039,34 @@ document.getElementById('run').addEventListener('click', async function() {
     outputDocument.write(html1 + css1); // Вставляем HTML и CSS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     outputDocument.close();
 
+    const consoleOverrideScript = outputDocument.createElement('script');
+    consoleOverrideScript.textContent = `
+        (function() {
+            const originalLog = console.log;
+            console.log = function(...args) {
+                const message = args.map(arg => {
+                    try {
+                        return typeof arg === 'object' ? JSON.stringify(arg) : String(arg);
+                    } catch {
+                        return String(arg);
+                    }
+                }).join(' ') + '\\n';
+                // Добавляем сообщение как текстовый узел в конец body (без новых элементов)
+                const textNode = document.createTextNode(message);
+                document.body.appendChild(textNode);
+                // Прокручиваем вниз, если нужно
+                window.scrollTo(0, document.body.scrollHeight);
+                originalLog.apply(console, args);
+            };
+        })();
+    `;
+    outputDocument.body.appendChild(consoleOverrideScript);
+
     // Создаем новый script элемент для JavaScript
     const script = outputDocument.createElement('script');
     script.textContent = js1; // Вставляем JavaScript код
     outputDocument.body.appendChild(script); // Добавляем скрипт в body
 });
-
-//работа кнопки Запустить с JS
-document.getElementById('run').addEventListener('click', function() {
-    const jsCode = document.getElementById('jsCode2').value;
-    // const jsCode = jsEditor2.getValue();
-    // const js = jsEditor.getValue();
-
-    const outputDiv = document.getElementById('output');
-    const resultDiv = document.getElementById('output');
-    // Очищаем предыдущий вывод
-    outputDiv.innerHTML = '';
-    resultDiv.innerHTML = '';
-    // Создаем функцию для обработки вывода
-    const log = (message) => {
-    outputDiv.innerHTML += message + '<br>';
-    };
-    // Используем new Function для выполнения кода
-    try {
-        // Перенаправляем console.log
-        const originalLog = console.log; // Сохраняем оригинальный console.log
-        console.log = log; // Перенаправляем console.log на нашу функцию
-
-        // Выполняем код
-        const output1 = new Function('return (' + jsCode + ')')();
-
-        // Восстанавливаем оригинальный console.log
-        console.log = originalLog;
-
-        // Выводим результат
-        if (output1 !== undefined) {
-            resultDiv.textContent = 'Результат: ' + output1;
-        }
-    } catch (error) {
-        outputDiv.textContent = 'Ошибка: ' + error.message;
-    }
-});
-
-
 
 // Код для кнопки jQuery
 document.getElementById('runjQButton').addEventListener('click', function() {
@@ -1283,4 +1268,5 @@ document.getElementById('clear').addEventListener('click', function() {
 
 // // Изначально показываем форму регистрации
 // showRegister();
+
 
