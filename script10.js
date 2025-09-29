@@ -19,7 +19,28 @@ function openTab(evt, tabName) {
     // Показать текущую вкладку и добавить класс "active" к кнопке
     document.getElementById(tabName).classList.add("active");
     evt.currentTarget.classList.add("active");
-         
+
+    //добавила новое для нормального переключение вкладок 29.09
+    setTimeout(() => {
+        if (tabName === "htmlTab") {
+            htmlEditor.refresh();
+            cssEditor.refresh();
+            jsEditor2.refresh();
+        } else if (tabName === "jsTab") {
+            jsEditor.refresh();
+        } else if (tabName === "bootTab") {
+            htmlEditor1.refresh();
+            cssEditor1.refresh();
+            jsEditor1.refresh();
+        } else if (tabName === "jquTab") {
+            jquEditor.refresh();
+        } else if (tabName === "vueTab") {
+            vueEditor.refresh();
+            JSONEditor.refresh();
+        }
+    }, 50); 
+     const tech = tabName.replace('Tab', ''); // Извлекаем 'html', 'js' и т.д. из tabName
+    updateLessonContent(tech);         
 }
 
 // Переключение вкладок
@@ -42,10 +63,6 @@ tabButtons.forEach(button => {
     if(tabId === "htmlTab1") htmlEditor.refresh();
     else if(tabId === "cssTab") cssEditor.refresh();
     else if(tabId === "jsTab1") jsEditor2.refresh();
-
-    // if(tabId === "htmlTab2") htmlEditor1.refresh();
-    // else if(tabId === "cssTab1") cssEditor1.refresh();
-    // else if(tabId === "jsTab2") jsEditor1.refresh();
 
   });
 });
@@ -1268,5 +1285,6 @@ document.getElementById('clear').addEventListener('click', function() {
 
 // // Изначально показываем форму регистрации
 // showRegister();
+
 
 
