@@ -54,7 +54,7 @@ html {
     /*flex: 1; что бы кнопки перехода на др язык были на всю ширину экрана */
     float: left;
     /* float: */
-    border-right:1px solid #bbb;
+    border-right:1px solid #5b5f7d;
   }
   
   li:last-child {
@@ -77,7 +77,7 @@ html {
 
 .navbar li a.active,
 .navbar li a:hover {
-  background-color: #44476b;
+  background-color: #a678ef;
   color: #fff;
   border-bottom: 3px solid #a678ef;
 }
@@ -180,8 +180,8 @@ h2 {
 }
 
 .tablink {
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
+    background-color: #2c2f4a;
+    border: 1px solid #2c2f4a;
     padding: 10px;
     cursor: pointer;
 }
